@@ -47,10 +47,10 @@ namespace HomeWork22
 
 
             Action<object[]> action1 = new Action<object[]>(GetSum);
-            Task task1 = new Task((Action<object>)action1, array1);
+            Task task1 = new Task(action1, array1);
 
             Action<Task, object[]> action2 = new Action<Task, object[]>(GetMax);
-            Task task2 = task1.ContinueWith((Action<Task, object>)action2, array1);
+            Task task2 = task1.ContinueWith(action2, array1);
 
             task1.Start();
 
